@@ -1,3 +1,3 @@
 # Message Board
 
-![Message Board image](/home/abdur/Pictures/message.png)
+![Message Board image](/images/message.png)
