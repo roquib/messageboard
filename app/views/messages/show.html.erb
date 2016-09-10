@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="message-show">
+    <h2><%= @message.title %></h2>
+    <p class="message-posted-by">
+      Posted by <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %> ago
+    </p>
+    <p class="message-desc">
+      <%= @message.description %>
+    </p>
+    <h3>Comments:</h3>
+    <%= render @message.comments %>
+    <h3 class="reply-to-msg">Reply to message:</h3>
+    <%= render 'comments/form' %>
+    <div class="links btn-group">
+      <%= link_to "Back", root_path,class: "btn btn-default" %>
+      <% if user_signed_in? %>
+      <% if @message.user_id = current_user.id %>
+      <%= link_to "Edit", edit_message_path(@message),class: "btn btn-default"  %>
+      <%= link_to "Delete", message_path(@message),method: :delete,class: "btn btn-default"  %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
